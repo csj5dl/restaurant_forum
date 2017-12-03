@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 #login&logout
 gem 'devise'
 gem 'carrierwave'
+gem 'ffaker'
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
