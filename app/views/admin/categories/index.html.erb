@@ -12,6 +12,9 @@
       </div>
       <%= f.submit class: "btn btn-primary" %>
     <% end %>
+    <% if @category.errors.any? %>
+      <%= @category.errors.full_messages.to_sentence %>
+    <% end %>
   </div>
   <br>
   <div class="row">
