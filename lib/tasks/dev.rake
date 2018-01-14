@@ -19,6 +19,7 @@ namespace :dev do
   task fake_user: :environment do
     20.times do |i|
       User.create(
+        name: FFaker::Name.name,
         email: FFaker::Internet.free_email,
         password: '123456'
       )
