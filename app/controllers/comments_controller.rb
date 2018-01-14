@@ -3,8 +3,14 @@ class CommentsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @comment = @restaurant.comments.build(comment_params)
     @comment.user = current_user
-    @comment.save!
-    redirect_to restaurant_path(@restaurant)
+    if @comment.save
+      flash[:notice] = "comment was successfully created"
+      redirect_to restaurant_path(@restaurant)
+    else
+      flash[:alert] = "comment cannot be blank"
+      redirect_to restaurant_path(@restaurant, comment_params)
+    end
+
   end
 
   def destroy
