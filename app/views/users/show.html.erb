@@ -3,7 +3,8 @@
 
     <div class="col-md-3 col-sm-4">
       <div class="text-center">
-        <img src="http://via.placeholder.com/350x350" class="img-responsive img-rounded">
+        <!-- onerror:不存在就default -->
+        <%= image_tag @user.avatar, class: "img-responsive img-rounded", onerror: 'this.error=null;this.src="http://via.placeholder.com/350x350"' %>
       </div>
     </div>
 

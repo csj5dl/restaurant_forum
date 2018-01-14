@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def edit
     unless @user == current_user
-      redirect_to user_path(@user)      
+      redirect_to user_path(@user)
     end
   end
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :intro)
+    params.require(:user).permit(:name, :intro, :avatar)
   end
 
 end
