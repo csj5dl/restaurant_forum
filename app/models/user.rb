@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments
+  #Rails 就會知道 comments table 扮演了 Join Table 的角色
+  has_many :restaurants, through: :comments
 
   mount_uploader :avatar, PhotoUploader
   validates_presence_of :name

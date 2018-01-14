@@ -16,5 +16,27 @@
         <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary" %>
       <% end %>
     </div>
+
+    <div class="clearfix"></div>
+    <br>
+
+    <!-- 已評論餐廳清單 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @commented_restaurants.count%> 間已評論餐廳</h3>
+      </div>
+
+      <div class="panel-body">
+        <% @commented_restaurants.each do |restaurant| %>
+          <%= link_to restaurant_path(restaurant) do %>
+            <div class="my-restaurant">
+              <%= image_tag restaurant.image, class: "img-responsive img-rounded", onerror: 'this.error=null;this.src="http://lorempixel.com/g/300/200"' %>
+              <h5><%= restaurant.name %></h5>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>

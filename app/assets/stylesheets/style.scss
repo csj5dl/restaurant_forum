@@ -22,3 +22,18 @@
   float: none;
   display: inline-block;
 }
+
+// 已評論餐廳清單
+.my-restaurant{
+  display: inline-block;
+  text-align: center;
+  padding: 7px;
+}
+
+.my-restaurant img{
+  height: 70px;
+}
+
+.panel a:hover .my-restaurant {
+  background-color: #eee;
+}
