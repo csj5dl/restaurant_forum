@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :comments
+  has_many :comments, dependent: :restrict_with_error
   #Rails 就會知道 comments table 扮演了 Join Table 的角色
   has_many :restaurants, through: :comments
 
