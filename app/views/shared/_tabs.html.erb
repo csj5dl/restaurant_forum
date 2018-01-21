@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="<%= "active" if tab == "首頁" %>">
+        <%= link_to "首頁", root_path %>
+      </li>
+      <li role="presentation" class="<%= "active" if tab == "最新動態" %>">
+        <%= link_to "最新動態", feeds_restaurants_path %>
+      </li>
+      <li role="presentation" class="<%= "active" if tab == "TOP10人氣餐廳" %>">
+        <%= link_to "TOP10人氣餐廳", ranking_restaurants_path %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<br>

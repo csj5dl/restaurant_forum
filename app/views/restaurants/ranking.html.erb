@@ -1,3 +1,4 @@
+<%= render partial: "shared/tabs", locals: {tab: "TOP10人氣餐廳"} %>
 <% @restaurants.each do |restaurant| %>
   <div>
     <%= image_tag restaurant.image %>
