@@ -1,11 +1,32 @@
 <%= render partial: "shared/tabs", locals: {tab: "TOP10人氣餐廳"} %>
-<% @restaurants.each do |restaurant| %>
-  <div>
-    <%= image_tag restaurant.image %>
-    <h4><%= restaurant.name %></h4>
-    <p>收藏數:<%= restaurant.favorites_count %></p>
-    <p><%= truncate(restaurant.description, length: 100) %></p>
-    <%= link_to "Show", restaurant_path(restaurant), class: "btn btn-primary" %>
-    <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-10 col-md-offset-1">
+      <div class="page-header">
+        <h1>Top 10 人氣餐廳 <small>(收藏數最高)</small></h1>
+      </div>
+
+      <% @restaurants.each do |restaurant| %>
+        <div class="ranking-item">
+          <div class="col-md-4">
+            <%= image_tag restaurant.image %>
+          </div>
+          <div class="col-md-8">
+            <h4>
+              <%= restaurant.name %>
+              <span class="label label-default">收藏數:<%= restaurant.favorites_count %></span>
+            </h4>
+            <p><%= truncate(restaurant.description, length: 100) %></p>
+            <%= link_to "Show", restaurant_path(restaurant), class: "btn btn-primary" %>
+            <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      <% end %>
+    </div>
+
   </div>
-<% end %>
+</div>
