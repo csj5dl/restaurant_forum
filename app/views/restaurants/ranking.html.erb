@@ -1,0 +1,10 @@
+<% @restaurants.each do |restaurant| %>
+  <div>
+    <%= image_tag restaurant.image %>
+    <h4><%= restaurant.name %></h4>
+    <p>收藏數:<%= restaurant.favorites_count %></p>
+    <p><%= truncate(restaurant.description, length: 100) %></p>
+    <%= link_to "Show", restaurant_path(restaurant), class: "btn btn-primary" %>
+    <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
+  </div>
+<% end %>

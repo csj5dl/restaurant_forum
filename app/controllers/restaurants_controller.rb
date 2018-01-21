@@ -46,4 +46,8 @@ class RestaurantsController < ApplicationController
     likes.destroy_all
     redirect_back(fallback_location: root_path)
   end
+
+  def ranking
+    @restaurants = Restaurant.all.order(favorites_count: :desc).limit(10)
+  end
 end
