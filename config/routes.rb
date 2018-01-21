@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   end
   resources :categories, only: :show
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
+  resources :followings, only: [:create, :destroy]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "restaurants#index"
 
