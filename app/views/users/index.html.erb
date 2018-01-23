@@ -1,8 +1,26 @@
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= user.name %>
-      <%= render partial: "shared/follow", locals: {user: user} %>
-    </li>
-  <% end %>
-</ul>
+<%= render partial: "shared/tabs", locals: {tab: "美食達人"} %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>美食達人</h1>
+      </div>
+    </div>
+
+    <% @users.each do |user| %>
+      <div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
+        <%= link_to user_path(user) do %>
+          <!-- onerror:不存在就default -->
+          <%= image_tag user.avatar, class: " img-rounded", onerror: 'this.error=null;this.src="http://via.placeholder.com/100x100"' %>
+          <h4><%= user.name %></h4>
+        <% end %>
+
+        <%= render partial: "shared/follow", locals: {user: user} %>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>
