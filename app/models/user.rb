@@ -13,12 +13,21 @@ class User < ApplicationRecord
   # 自訂名稱後，Rails 無法自動推論來源名稱，需另加 source 告知 model name
   has_many :favorites, dependent: :destroy
   has_many :favorited_restaurants, through: :favorites, source: :restaurant
+  # has_many :favorites, class_name: "favorite", primary_key: "id", foreign_key: "user_id"
+  #           方法命名    關聯資料表格名稱           自己主KEY            對方的外KEY
+  #has_many :favorited_restaurants, through: :favorites, source: :restaurant
+  #          方法命名                 中間表名稱            來源關聯名稱
 
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
 
+  # 使用者追蹤使用者
   has_many :followships, dependent: :destroy
   has_many :followings, through: :followships
+
+  # 使用者的追蹤者
+  has_many :inverse_followships, class_name: "Followship", foreign_key: "following_id"
+  has_many :followers, through: :inverse_followships, source: :user
 
   mount_uploader :avatar, PhotoUploader
   validates_presence_of :name
